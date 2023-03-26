@@ -13,11 +13,11 @@ def main():
 
     channel.queue_bind(exchange='shop', queue=queue_name, routing_key="sw")
 
-    print(' [*] Waiting for logs. To exit press CTRL+C')
+    print(' [*] Warte auf Bestellungen. Zum Beenden drücke CTRL+C')
 
 
     def callback(ch, method, properties, body):
-        print(" [x] %r:%r" % (method.routing_key, body.decode()))
+        print(" [x] Bestellung erhalten %r:%r" % (method.routing_key, body.decode()))
 
 
     channel.basic_consume(
