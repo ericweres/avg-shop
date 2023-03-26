@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 import os
-import pika
 import sys
-
+import pika
 
 def main():
     connection = pika.BlockingConnection(
@@ -19,7 +18,7 @@ def main():
     print(' [*] Warte auf Bestellungen. Zum Beenden drücke CTRL+C')
 
     def callback(ch, method, properties, body):
-        print(" [x] Bestellung erhalten %r:%r" % (method.routing_key, body.decode()))
+        print(f" [x] Bestellung erhalten {method.routing_key}:{body.decode()}")
 
     channel.basic_consume(
         queue=queue_name, on_message_callback=callback, auto_ack=True)
