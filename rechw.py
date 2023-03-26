@@ -1,9 +1,12 @@
 #!/usr/bin/env python
-import pika, sys, os
+import os
+import pika
+import sys
+
 
 def main():
     connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+        pika.ConnectionParameters(host='localhost'))
     channel = connection.channel()
 
     channel.exchange_declare(exchange='shop', exchange_type='direct')
