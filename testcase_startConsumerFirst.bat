@@ -6,3 +6,4 @@ timeout 3
 
 cd producer
 python .\producercsv.py
+cd..
