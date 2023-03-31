@@ -1,4 +1,4 @@
-# AVG Gruppe 6 | MOM Sim
+![AVG Gruppe 6 | MOM Sim](https://i.imgur.com/08UhJ2V.png)
 
 + Die Anwendung ist auf mehrere verschiedene "Projekte" aufgebaut
     + Ein Consumer, der Hardware-Aufträge konsumiert.
