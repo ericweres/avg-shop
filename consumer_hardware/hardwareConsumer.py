@@ -3,14 +3,16 @@ import os
 import sys
 import pika
 
-
+print("Hardware Consumer gestartet")
 def main():
+    #Verbindung mit RabbitMQ Server aufbauen
     connection = pika.BlockingConnection(
         pika.ConnectionParameters(host='localhost'))
     channel = connection.channel()
 
     channel.exchange_declare(exchange='shop', exchange_type='direct')
 
+    #Queue durable gesetzt, damit Bestellbestätigungen nicht verloren gehen
     result = channel.queue_declare(queue='hardware', durable=True)
     queue_name = result.method.queue
 
@@ -18,7 +20,7 @@ def main():
 
     print(' [*] Warte auf Bestellungen. Zum Beenden drücke CTRL+C')
 
-
+    #Ausgabe wenn Bestellung erhalten (hier könnte man auch Nachrichten zurück an Producer schicken)
     def callback(ch, method, properties, body):
         print(f" [x] Bestellung erhalten {method.routing_key}:{body.decode()}")
 
