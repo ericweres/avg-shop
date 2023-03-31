@@ -20,7 +20,7 @@ def main():
 
     print(' [*] Warte auf Bestellungen. Zum Beenden drücke CTRL+C')
 
-    #Ausgabe wenn Bestellung erhalten (hier könnte man auch Nachrichten zurück an Producer schicken)
+    #Ausgabe wenn Bestellung erhalten und versenden Nachrichten an Producer zurück
     def callback(ch, method, properties, body):
         content = body.decode()
         print(f" [x] Bestellung erhalten {method.routing_key}:{content}")
