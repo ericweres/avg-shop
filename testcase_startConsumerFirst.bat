@@ -2,7 +2,7 @@ start cmd /C python .\consumer_hardware\hardwareConsumer.py
 
 start cmd /C python .\consumer_software\softwareConsumer.py
 
-timeout 3
+timeout 10
 
 cd .\producer\
 
