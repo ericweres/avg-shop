@@ -3,7 +3,7 @@ import os
 import sys
 import pika
 
-print("Hardware Consumer gestartet")
+print("Software Consumer gestartet")
 def main():
     #Verbindung mit RabbitMQ Server aufbauen
     connection = pika.BlockingConnection(
@@ -22,7 +22,10 @@ def main():
 
     #Ausgabe wenn Bestellung erhalten (hier könnte man auch Nachrichten zurück an Producer schicken)
     def callback(ch, method, properties, body):
-        print(f" [x] Bestellung erhalten {method.routing_key}:{body.decode()}")
+        content = body.decode()
+        print(f" [x] Bestellung erhalten {method.routing_key}:{content}")
+        channel.basic_publish(
+            exchange='shop', routing_key=content.split(',')[0], body=content.split(',')[1])
 
     channel.basic_consume(
         queue=queue_name, on_message_callback=callback, auto_ack=True)

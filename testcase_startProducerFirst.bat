@@ -1,8 +1,10 @@
 cd .\producer\
-python .\producercsv1.py
 
-python .\producercsv2.py
-cd..
+start cmd /C python .\producercsv1.py
+
+start cmd /C python .\producercsv2.py
+
+cd ..
 
 timeout 3
 
