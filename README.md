@@ -9,11 +9,15 @@
 
 ## How to Run
 
-1. Rabbit Server starten (in root-dir):
+1. Pika installieren:
+      ```shell
+      pip install pika
+	  ```
+2. Rabbit Server starten (in root-dir):
       ```shell
       docker compose up
       ```
-2. Ausführen der jeweiligen Services(Consumer oder Producer in einer shell)
+3. Ausführen der jeweiligen Services(Consumer oder Producer in einer shell)
       ```shell
       cd producer
 		python .\producercsv1.py
@@ -28,7 +32,7 @@
 		python .\softwareConsumer.py
       ```
 
-3. **Alternativ** die Testcases durchspielen (in root-dir).
+4. **Alternativ** die Testcases durchspielen (in root-dir).
 
      Consumer ist gestartet und Producer wird später gestartet:
 	```shell
@@ -38,8 +42,7 @@
 	```shell
     .\testcase_startProducerFirst.bat
     ```
-
-4. Rabbit server runterfahren:
+5. Rabbit server runterfahren:
     ```shell
     docker compse down
     ```
